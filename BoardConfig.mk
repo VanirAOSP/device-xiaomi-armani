@@ -112,9 +112,6 @@ TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 USE_CLANG_PLATFORM_BUILD := true
 
-# Power
-TARGET_POWERHAL_VARIANT := qcom
-
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
@@ -135,10 +132,6 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/armani/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
-
-# Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
