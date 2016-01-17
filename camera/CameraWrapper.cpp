@@ -117,6 +117,10 @@ static char *camera_fixup_getparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, supportedSceneModes);
     }
 
+    /* Enable antibanding and denoise by default */
+    params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
+    params.set(android::CameraParameters::KEY_QC_DENOISE, "denoise-on");
+
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
@@ -169,11 +173,6 @@ static char *camera_fixup_setparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "false");
         params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "Off");
         params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "0,0,0");
-    }
-
-    /* Front camera doesn't have a flash. Make sure apps don't think it does. */
-    if (id == FRONT_CAMERA) {
-        params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
     }
 
 #if !LOG_NDEBUG
