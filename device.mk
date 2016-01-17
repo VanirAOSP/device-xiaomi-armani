@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -73,7 +73,8 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger_res_images
+    charger_res_images \
+    libhealthd.armani
 
 # Connectivity
 PRODUCT_PACKAGES += \
@@ -173,6 +174,7 @@ PRODUCT_PACKAGES += \
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
+    ro.qualcomm.cabl=0 \
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # Ramdisk
@@ -214,6 +216,4 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    ro.disableWifiApFirmwareReload=true \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
+    ro.disableWifiApFirmwareReload=true
