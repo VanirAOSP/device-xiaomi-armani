@@ -17,6 +17,7 @@
 #define CAMERA_PARAMETERS_EXTRA_C \
 const char CameraParameters::KEY_QC_AE_BRACKET_HDR[] = "ae-bracket-hdr"; \
 const char CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE[] = "capture-burst-exposures"; \
+const char CameraParameters::KEY_QC_DENOISE[] = "denoise"; \
 const char CameraParameters::KEY_QC_MORPHO_HDR[] = "morpho-hdr"; \
 const char CameraParameters::KEY_QC_ZSL[] = "zsl"; \
 \
@@ -24,6 +25,7 @@ const char CameraParameters::KEY_QC_ZSL[] = "zsl"; \
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char KEY_QC_AE_BRACKET_HDR[]; \
     static const char KEY_QC_CAPTURE_BURST_EXPOSURE[]; \
+    static const char KEY_QC_DENOISE[]; \
     static const char KEY_QC_MORPHO_HDR[]; \
     static const char KEY_QC_ZSL[]; \
     \
