@@ -19,6 +19,7 @@ const char CameraParameters::KEY_QC_AE_BRACKET_HDR[] = "ae-bracket-hdr"; \
 const char CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE[] = "capture-burst-exposures"; \
 const char CameraParameters::KEY_QC_DENOISE[] = "denoise"; \
 const char CameraParameters::KEY_QC_MORPHO_HDR[] = "morpho-hdr"; \
+const char CameraParameters::KEY_QC_TOUCH_AF_AEC[] = "touch-af-aec"; \
 const char CameraParameters::KEY_QC_ZSL[] = "zsl"; \
 \
 
@@ -27,5 +28,6 @@ const char CameraParameters::KEY_QC_ZSL[] = "zsl"; \
     static const char KEY_QC_CAPTURE_BURST_EXPOSURE[]; \
     static const char KEY_QC_DENOISE[]; \
     static const char KEY_QC_MORPHO_HDR[]; \
+    static const char KEY_QC_TOUCH_AF_AEC[]; \
     static const char KEY_QC_ZSL[]; \
     \
