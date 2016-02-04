@@ -72,6 +72,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     camera.msm8226 \
+    libboringssl-compat \
     libxml2 \
     Snap
 
