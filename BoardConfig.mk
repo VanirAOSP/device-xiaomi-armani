@@ -81,6 +81,9 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Hardware tunables
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
+# Headers
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
 # Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm

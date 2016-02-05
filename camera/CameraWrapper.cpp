@@ -113,10 +113,6 @@ static char *camera_fixup_getparams(int id, const char *settings)
             "auto,asd,landscape,snow,beach,sunset,night,portrait,backlight,sports,steadyphoto,flowers,candlelight,fireworks,party,night-portrait,theatre,action,AR");
     }
 
-    /* Enable antibanding and denoise by default */
-    params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
-    params.set(android::CameraParameters::KEY_QC_DENOISE, "denoise-on");
-
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
@@ -151,25 +147,25 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     /* Disable ZSL and HDR snapshots in video mode */
     if (videoMode) {
-        params.set("zsl", "off");
+        params.set(android::CameraParameters::KEY_QC_ZSL, "off");
         if (hdrMode) {
             params.set(android::CameraParameters::KEY_SCENE_MODE, "auto");
         }
     } else {
-        params.set("touch-af-aec", "touch-on");
-        params.set("zsl", "on");
+        params.set(android::CameraParameters::KEY_QC_TOUCH_AF_AEC, "touch-on");
+        params.set(android::CameraParameters::KEY_QC_ZSL, "on");
     }
 
     /* Enable Morpho EasyHDR and disable flash in HDR mode */
     if (hdrMode && !videoMode) {
-        params.set("morpho-hdr", "true");
-        params.set("ae-bracket-hdr", "AE-Bracket");
-        params.set("capture-burst-exposures", "-6,8,0");
+        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "true");
+        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "AE-Bracket");
+        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "-6,8,0");
         params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
     } else {
-        params.set("morpho-hdr", "false");
-        params.set("ae-bracket-hdr", "Off");
-        params.set("capture-burst-exposures", "0,0,0");
+        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "false");
+        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "Off");
+        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "0,0,0");
     }
 
 #if !LOG_NDEBUG
