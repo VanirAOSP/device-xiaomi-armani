@@ -33,9 +33,6 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
-#define BACK_CAMERA     0
-#define FRONT_CAMERA    1
-
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -102,8 +99,6 @@ static int check_vendor_module()
 
 static char *camera_fixup_getparams(int id, const char *settings)
 {
-    const char *supportedSceneModes = "auto,asd,landscape,snow,beach,sunset,night,portrait,backlight,sports,steadyphoto,flowers,candlelight,fireworks,party,night-portrait,theatre,action,AR";
-
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -113,8 +108,9 @@ static char *camera_fixup_getparams(int id, const char *settings)
 #endif
 
     /* Remove HDR mode in front camera */
-    if (id == FRONT_CAMERA) {
-        params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, supportedSceneModes);
+    if (id == 1) {
+        params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES,
+            "auto,asd,landscape,snow,beach,sunset,night,portrait,backlight,sports,steadyphoto,flowers,candlelight,fireworks,party,night-portrait,theatre,action,AR");
     }
 
     /* Enable antibanding and denoise by default */
@@ -155,25 +151,25 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     /* Disable ZSL and HDR snapshots in video mode */
     if (videoMode) {
-        params.set(android::CameraParameters::KEY_QC_ZSL, "off");
+        params.set("zsl", "off");
         if (hdrMode) {
             params.set(android::CameraParameters::KEY_SCENE_MODE, "auto");
         }
     } else {
-        params.set(android::CameraParameters::KEY_QC_TOUCH_AF_AEC, "touch-on");
-        params.set(android::CameraParameters::KEY_QC_ZSL, "on");
+        params.set("touch-af-aec", "touch-on");
+        params.set("zsl", "on");
     }
 
     /* Enable Morpho EasyHDR and disable flash in HDR mode */
     if (hdrMode && !videoMode) {
-        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "true");
-        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "AE-Bracket");
-        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "-6,8,0");
+        params.set("morpho-hdr", "true");
+        params.set("ae-bracket-hdr", "AE-Bracket");
+        params.set("capture-burst-exposures", "-6,8,0");
         params.set(android::CameraParameters::KEY_FLASH_MODE, android::CameraParameters::FLASH_MODE_OFF);
     } else {
-        params.set(android::CameraParameters::KEY_QC_MORPHO_HDR, "false");
-        params.set(android::CameraParameters::KEY_QC_AE_BRACKET_HDR, "Off");
-        params.set(android::CameraParameters::KEY_QC_CAPTURE_BURST_EXPOSURE, "0,0,0");
+        params.set("morpho-hdr", "false");
+        params.set("ae-bracket-hdr", "Off");
+        params.set("capture-burst-exposures", "0,0,0");
     }
 
 #if !LOG_NDEBUG
