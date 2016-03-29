@@ -10,7 +10,7 @@ vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 
-# Audio
+# ACDB
 etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 etc/acdbdata/MTP/MTP_General_cal.acdb
 etc/acdbdata/MTP/MTP_Global_cal.acdb
@@ -19,6 +19,8 @@ etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
 etc/acdbdata/MTP/MTP_Headset_cal.acdb
 etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 vendor/lib/libacdbloader.so
+
+# Audio
 vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
@@ -38,7 +40,6 @@ bin/mm-qcamera-daemon
 lib/hw/camera.vendor.msm8226.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
-lib/libmm-qcamera.so
 lib/libqomx_core.so
 vendor/lib/libactuator_dw9714.so
 vendor/lib/libactuator_dw9714_camcorder.so
@@ -48,7 +49,6 @@ vendor/lib/libFaceDeform.so
 vendor/lib/libFaceProc.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
-vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_ov9760_eeprom.so
 vendor/lib/libmmcamera_ov9760_q1v05a.so
@@ -56,7 +56,6 @@ vendor/lib/libmmcamera_s5k3h2yx_eeprom.so
 vendor/lib/libmmcamera_s5k3h2yx_owt8a01a.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
-vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
@@ -72,7 +71,7 @@ vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
 vendor/lib/liboemcamera.so
 
-# Camera
+# Camera jpeg
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmjpeg.so
