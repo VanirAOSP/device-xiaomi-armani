@@ -33,7 +33,9 @@ PRODUCT_PACKAGES += \
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-flags=--no-watch-dog
-
+    dalvik.vm.dex2oat-filter=interpret-only \
+    dalvik.vm.image-dex2oat-filter=speed  
+ 
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
