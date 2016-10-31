@@ -58,6 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    bdaddr_xiaomi \
     init.qcom.bt.sh
 
 # CABL
